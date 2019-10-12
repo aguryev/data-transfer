@@ -1,0 +1,25 @@
+{% extends 'header.html' %}
+
+{% block title %}
+Data Transfer System | Download
+{% endblock %}
+
+{% block content %}
+<h2>
+	{% if data.is_file %}
+		File:
+	{% else %}
+		URL:
+	{% endif %}
+</h2>
+<p>{{data.description}}</p>
+
+{% if try_again %}
+	<p>Incorrect password. Please try again</p>
+{% endif %}
+<form method="post">
+	{% csrf_token %}
+	{{form.as_p}}
+	<button type="submit">Submit</button>
+</form>
+{% endblock %}

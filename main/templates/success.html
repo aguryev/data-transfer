@@ -1,0 +1,18 @@
+{% extends 'header.html' %}
+
+{% block title %}
+Data Transfer System | Data Successfully Uploaded
+{% endblock %}
+
+{% block content %}
+<h2>The 
+	{% if data.is_file %}
+		file
+	{% else %}
+		URL
+	{% endif %}
+is uploaded successfully!!</h2>
+<p>You can access it using the following:</p>
+<p><b>URL:</b> <a href="http://{{host}}/{{data.slug}}">http://{{host}}/{{data.slug}}</a></p>
+<p><b>Password:</b> {{data.password}}</p>
+{% endblock %}
